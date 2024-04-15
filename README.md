@@ -1,1 +1,2 @@
-# algo_cwk_24
+# Algorithms & Data Structures - Coursework @IIT
+
