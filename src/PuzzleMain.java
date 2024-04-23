@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PuzzleMain {
@@ -26,23 +27,20 @@ public class PuzzleMain {
 
                 if (userChoice < 1 || userChoice > 3)
                 {
-                    throw new IllegalArgumentException("Invalid choice. Please enter a number between 1 and 3.");
+                    System.out.println("Invalid input. Please enter a number between 1 and 3.");
                 }
                 else {
-                    /*
-                     break out of the loop
-                     if user input is valid
-                    */
+                    /* break out of the loop
+                    only if user input is valid*/
                     break;
                 }
             }
-            catch (Exception e) {
+            catch (InputMismatchException e) {
                 // handle invalid input
                 System.out.println("Invalid input. Please enter a number between 1 and 3.");
                 myScanner.nextLine();
             }
         }
-        System.out.println("You chose option: " + userChoice);
 
     }
 }
