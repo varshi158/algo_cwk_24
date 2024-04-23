@@ -56,4 +56,9 @@ public class PuzzleMap {
             System.out.println("File not found: " + e.getMessage());
         }
     }
+
+    // Method to retrieve the loaded puzzle
+    public char[][] getPuzzle() {
+        return puzzle;
+    }
 }
