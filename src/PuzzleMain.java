@@ -3,10 +3,11 @@ import java.util.Scanner;
 
 public class PuzzleMain {
     public static void main(String[] args) {
+        System.out.println();
         System.out.println(
                 """
                 =============================================
-                |     WELCOME TO THE SLIDING PUZZLE GAME    |
+                ||     WELCOME TO THE SLIDING PUZZLE GAME  ||
                 =============================================
                 """);
 
@@ -51,7 +52,7 @@ public class PuzzleMain {
             case 1 -> displayDemo();
 
             // select puzzle to load
-            case 2 -> System.out.println(" ");
+            case 2 -> selectPuzzle();
 
             // exit from the program
             case 3 -> System.out.println("Exiting from the game..." +
@@ -77,5 +78,67 @@ public class PuzzleMain {
             System.out.println();
         }
     } // end of displayDemo method
+
+    private static void selectPuzzle() {
+        Scanner myScanner = new Scanner(System.in);
+        int selectedFolderNum;
+
+        do {
+            System.out.println();
+            System.out.print("""
+                To make a selection, enter 1 or 2.
+                1: To select "examples" folder
+                2: To select "benchmark_series" folder
+                """);
+
+            /* keeps looping as long as user
+            enters an integer
+             */
+            while (!myScanner.hasNextInt()) {
+                System.out.println("Invalid input. Please enter an integer.");
+                myScanner.nextLine();
+            }
+
+            // stores user input
+            selectedFolderNum = myScanner.nextInt();
+            myScanner.nextLine();
+
+            // checks if valid integer number was entered
+            if (selectedFolderNum != 1 && selectedFolderNum != 2) {
+                System.out.println("Invalid input. Please enter 1 or 2.");
+            }
+        } while (selectedFolderNum != 1 && selectedFolderNum != 2);
+
+        // assign name for selected folder
+        String selectedFolder = (selectedFolderNum == 1) ? "examples" : "benchmark_series";
+
+
+        System.out.println();
+        System.out.println("Enter the name of the puzzle file " +
+                "that you would like to open. \nFile extension is not required.");
+        String fileName = myScanner.next() + ".txt";
+
+        try {
+            PuzzleMap myPuzzle = new PuzzleMap(selectedFolder, fileName);
+
+            // Get the loaded puzzle from PuzzleMap
+            char[][] puzzleArray = myPuzzle.getPuzzle();
+
+
+            // Display details of the loaded puzzle
+            System.out.println("\nLoading puzzle -> '" + selectedFolder + "/" + fileName);
+            for (char[] row : puzzleArray) {
+                for (char element : row) {
+                    System.out.print(element);
+                }
+                System.out.println();
+            }
+        }
+        // handle possible exceptions
+        catch (Exception e) {
+            System.out.println("An error occurred!!\n" + e.getMessage());
+        }
+
+    } // end of selectPuzzle method
 
 }

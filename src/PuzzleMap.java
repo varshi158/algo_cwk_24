@@ -53,7 +53,7 @@ public class PuzzleMap {
         }
         catch (FileNotFoundException e) {
             // handle file not found exception
-            System.out.println("File not found: " + e.getMessage());
+            //System.out.println("File not found: " + e.getMessage());
         }
     }
 
