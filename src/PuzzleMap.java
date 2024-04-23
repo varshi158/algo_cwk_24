@@ -4,12 +4,18 @@ import java.util.Scanner;
 
 public class PuzzleMap {
     private char [][] puzzle;
+    private int puzzleWidth;
+    private int puzzleHeight;
+    private int startPointRow;
+    private int startPointCol;
+    private int finishPointRow;
+    private int finishPointCol;
 
     public PuzzleMap (String folderName, String fileName) {
         loadPuzzle(folderName, fileName);
     }
 
-    //
+    // Method to load and parse the puzzle from the file
     private void loadPuzzle(String folderName, String fileName) {
         try {
             // create file object for the puzzle file
@@ -33,6 +39,10 @@ public class PuzzleMap {
                 }
             }
 
+            // Update width and height
+            puzzleWidth = numCols;
+            puzzleHeight = numRows;
+
             /* reset scanner to read from the
             beginning of the puzzle file again */
             myScanner.close();
@@ -46,7 +56,16 @@ public class PuzzleMap {
             while (myScanner.hasNextLine()) {
                 String line = myScanner.nextLine();
                 for (int col = 0; col < numCols; col++) {
-                    puzzle[row][col] = line.charAt(col);
+                    char currentElement = line.charAt(col);
+                    puzzle[row][col] = currentElement;
+
+                    if (currentElement == 'S') {
+                        startPointCol = col;
+                        startPointRow = row;
+                    } else if (currentElement == 'F') {
+                        finishPointCol = col;
+                        finishPointRow = row;
+                    }
                 }
                 row++;
             }
@@ -60,5 +79,35 @@ public class PuzzleMap {
     // Method to retrieve the loaded puzzle
     public char[][] getPuzzle() {
         return puzzle;
+    }
+
+    // Method to retrieve the width of the puzzle
+    public int getWidth() {
+        return this.puzzleWidth;
+    }
+
+    // Method to retrieve the height of the puzzle
+    public int getHeight() {
+        return this.puzzleHeight;
+    }
+
+    // Method to retrieve the starting position row
+    public int getStartPointRow() {
+        return this.startPointRow;
+    }
+
+    // Method to retrieve the starting position column
+    public int getStartPointCol() {
+        return this.startPointCol;
+    }
+
+    // Method to retrieve the finish position row
+    public int getFinishPointRow() {
+        return this.finishPointRow;
+    }
+
+    // Method to retrieve the finish position column
+    public int getFinishPointCol() {
+        return this.finishPointCol;
     }
 }
