@@ -48,7 +48,7 @@ public class PuzzleMain {
         // enhanced switch statement to handle user choice
         switch (userChoice) {
             // load puzzle from file
-            case 1 -> System.out.println(" ");
+            case 1 -> displayDemo();
 
             // select puzzle to load
             case 2 -> System.out.println(" ");
@@ -58,4 +58,24 @@ public class PuzzleMain {
                     "\nSee you soon!");
         }// end of switch statement
     } // end of main method
+
+
+    // Method to display a demo of the game
+    private static void displayDemo() {
+        // Create an instance of PuzzleMap to load the puzzle from file
+        PuzzleMap demoPuzzle = new PuzzleMap("examples", "maze10_1.txt");
+
+        // Get the loaded puzzle from PuzzleMap
+        char[][] demoPuzzleArray = demoPuzzle.getPuzzle();
+
+        // Display details of the loaded puzzle
+        System.out.println("\nLoading puzzle -> 'examples/maze10_1.txt'");
+        for (char[] row : demoPuzzleArray) {
+            for (char cell : row) {
+                System.out.print(cell);
+            }
+            System.out.println();
+        }
+    } // end of displayDemo method
+
 }
