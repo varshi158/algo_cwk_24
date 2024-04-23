@@ -19,9 +19,9 @@ public class PuzzleMain {
         while (true) {
             // options for user to select from
             System.out.println("Select from an option below:");
-            System.out.println("1: To load a puzzle from an existing file.");
+            System.out.println("1: To display a demo of the game.");
             System.out.println("2: To select from an available puzzle.");
-            System.out.println("3. To exit.");
+            System.out.println("3: To exit.");
 
             try {
                 userChoice = myScanner.nextInt();
@@ -56,8 +56,6 @@ public class PuzzleMain {
             // exit from the program
             case 3 -> System.out.println("Exiting from the game..." +
                     "\nSee you soon!");
-        }
-
-
+        }// end of switch statement
     } // end of main method
 }
