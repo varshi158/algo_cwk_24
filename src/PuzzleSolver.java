@@ -18,6 +18,17 @@ public class PuzzleSolver {
         // add the start node to the queue
         queue.offer(startNode);
 
+        // perform bfs while the queue is not empty
+        while (!queue.isEmpty()) {
+
+            // retrieve current node's index position
+            Node currentNode = queue.poll();
+            int row = currentNode.row;
+            int col = currentNode.col;
+
+
+        }
+
 
     }
 }
