@@ -32,9 +32,17 @@ public class PuzzleSolver {
                 return;
             }
 
-            // set current node to "true"
+            // set current node to be "true"
             // because it has been visited
             visitedNodes[row][col] = true;
+
+            // visit adjacent cells
+            for (int[] direction : getDirections()) {
+                // calculate new row and column indices
+                int newRow = row + direction[0];
+                int newCol = col + direction[1];
+
+            }
         }
     }
 
