@@ -91,22 +91,22 @@ public class PuzzleMap {
         return this.puzzleHeight;
     }
 
-    // Method to retrieve the starting position row
+    // Method to retrieve the starting point row index
     public int getStartPointRow() {
         return this.startPointRow;
     }
 
-    // Method to retrieve the starting position column
+    // Method to retrieve the starting point column index
     public int getStartPointCol() {
         return this.startPointCol;
     }
 
-    // Method to retrieve the finish position row
+    // Method to retrieve the finishing point row index
     public int getFinishPointRow() {
         return this.finishPointRow;
     }
 
-    // Method to retrieve the finish position column
+    // Method to retrieve the finishing point column index
     public int getFinishPointCol() {
         return this.finishPointCol;
     }
