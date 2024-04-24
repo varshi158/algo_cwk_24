@@ -56,4 +56,15 @@ public class PuzzleSolver {
         };
         return directions;
     }
+
+    // method to check if a move is valid
+    private static boolean isValidMove(char[][] puzzle, boolean[][] visited, int row, int col) {
+        boolean withinRowBounds = row >= 0 && row < puzzle.length;
+        boolean withinColBounds = col >= 0 && col < puzzle[0].length;
+        boolean notObstacle = puzzle[row][col] != '0';
+        boolean notVisited = !visited[row][col];
+
+        return withinRowBounds && withinColBounds && notObstacle && notVisited;
+    }
+
 }
