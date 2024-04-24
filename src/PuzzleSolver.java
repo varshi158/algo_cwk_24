@@ -67,4 +67,36 @@ public class PuzzleSolver {
         return withinRowBounds && withinColBounds && notObstacle && notVisited;
     }
 
+    // method to print path from start to finish
+    private static void printPathStoF(Node finishNode) {
+        // initialize the current node with the finish node
+        Node currentNode = finishNode;
+
+        // initialize an empty LinkedList to store the path nodes
+        LinkedList <Node> pathNodes = new LinkedList<>();
+
+        // traverse the path backward and store nodes in the LinkedList
+        while (currentNode != null) {
+            // push the current node onto the LinkedList
+            pathNodes.push(currentNode);
+
+            // move to the parent node for the next iteration
+            currentNode = currentNode.parent;
+        }
+
+        // print the starting position of the path
+        Node startNode = pathNodes.peek();
+        System.out.println("Start at->\t(" + startNode.row + ", " + startNode.col + ")");
+
+        // Print each move in the path from start to finish
+        while (!pathNodes.isEmpty()) {
+            // Pop a node from the LinkedList
+            Node nextNode = pathNodes.pop();
+
+            // Print the move to the current node
+            System.out.println("Move to->\t(" + nextNode.row + ", " + nextNode.col + ")");
+        }
+    }
+
+
 }
