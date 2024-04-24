@@ -28,7 +28,7 @@ public class PuzzleSolver {
 
             // check if current node is equal to finishing cell
             if (row == finishPointRow && col == finishPointCol) {
-                //displayStoFPath(currentNode);
+                printPathStoF(currentNode);
                 return;
             }
 
