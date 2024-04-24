@@ -42,9 +42,14 @@ public class PuzzleSolver {
                 int newRow = row + direction[0];
                 int newCol = col + direction[1];
 
+                // Check if the new cell is within bounds, not a rock, and not visited
+                if (isValidMove(puzzle, visitedNodes, newRow, newCol)) {
+                    // Add the new cell to the queue
+                    queue.offer(new Node(newRow, newCol, currentNode));
+                }
             }
         }
-    }
+    }// end of bfsPathFinder()
 
     // method to get the directions: up, down, left, right
     private static int [][] getDirections() {
