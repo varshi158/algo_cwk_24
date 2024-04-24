@@ -26,9 +26,26 @@ public class PuzzleSolver {
             int row = currentNode.row;
             int col = currentNode.col;
 
+            // check if current node is equal to finishing cell
+            if (row == finishPointRow && col == finishPointCol) {
+                //displayStoFPath(currentNode);
+                return;
+            }
 
+            // set current node to "true"
+            // because it has been visited
+            visitedNodes[row][col] = true;
         }
+    }
 
-
+    // method to get the directions: up, down, left, right
+    private static int [][] getDirections() {
+        int [][] directions = {
+                {-1, 0}, // Up
+                {1, 0},  // Down
+                {0, -1}, // Left
+                {0, 1}   // Right
+        };
+        return directions;
     }
 }
