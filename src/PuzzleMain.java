@@ -77,6 +77,12 @@ public class PuzzleMain {
             }
             System.out.println();
         }
+
+        // method to solve puzzle
+        PuzzleSolver.bfsPathFinder(demoPuzzleArray,
+                demoPuzzle.getStartPointRow(), demoPuzzle.getStartPointCol(),
+                demoPuzzle.getFinishPointRow(), demoPuzzle.getFinishPointCol());
+
     } // end of displayDemo method
 
     private static void selectPuzzle() {
@@ -133,6 +139,11 @@ public class PuzzleMain {
                 }
                 System.out.println();
             }
+
+            // method to solve puzzle
+            PuzzleSolver.bfsPathFinder(puzzleArray,
+                    myPuzzle.getStartPointRow(), myPuzzle.getStartPointCol(),
+                    myPuzzle.getFinishPointRow(), myPuzzle.getFinishPointCol());
         }
         // handle possible exceptions
         catch (Exception e) {
